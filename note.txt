@@ -1,0 +1,4 @@
+Section 3 - Order Now button 
+to connect link to Product Page 
+Main Section - Swiper Photo 1, 2  
+to connect link to Equipment page, product page

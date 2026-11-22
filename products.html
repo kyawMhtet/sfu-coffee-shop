@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Shop</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!--Custom css-->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style_shop.css">
+</head>
+
+<body>
+  <!--PART1: Header, Navigation, Hamburger [Common]-->
+  <header class="shop-header-container">
+    <nav class="navbar navbar-expand-lg navbar-lg navbar-light px-3">
+      <!--a) LOGO Area-->
+      <a href="index.html" class="navbar-brand fw-bold
+                shop-logo">
+        Magic Shop The Cafe Online
+      </a>
+      <!--b) hamburger and cart page-->
+      <div class="d-flex align-item-center order-lg-last ms-auto">
+        <!--b1) Shopping Cart (always visible)-->
+        <a href="cart.html" class="btn me-2 me-lg-0 ms-lg-3 text-decoration-none
+                    position-relative shop-cart-outline">
+          <i class="bi bi-basket-fill"></i>
+          <span class="d-none d-sm-inline ms-1">Cart</span>
+          <span class="position-absolute top-0 start-100
+                    translate-middle badge rounded-pill bg-danger shop-cart-badge">
+            0
+          </span>
+        </a>
+        <!--b2) Hamburger Menu Toggle (mobile: visible)-->
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarLinks">
+          <span class="navbar-toggler-icon bg-light"></span>
+        </button>
+
+      </div>
+      <!--c) Navigation Links (normal: direct) (mobile: Dropdown)-->
+      <div class="collapse navbar-collapse py-3 px-2 px-lg-0 py-lg-0" id="navbarLinks">
+        <ul class="navbar-nav mb-2 mb-lg-0 fw-semibold">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="products.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="equipments.html">Equipments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="event.html">Event</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="subscription.html">Subscription</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <!--PART2: MAIN AREA for specific page-->
+  <main>
+    <!--Part1 : Searching Area-->
+    <div class="shop-search-container">
+      <h1>Coffee Category Searching...</h1>
+      <!--Part1.1: Search Box with Text Box-->
+      <input type="text" class="shop-search-box" id="shopSearchBox" placeholder="What's on your mind?">
+      <i class="bi bi-search shop-search-btn"></i>
+      <!--Part1.2: Search by category button-->
+      <div class="shop-category-container" id="shopCategoryContainer"></div>
+    </div>
+
+    <!--Part2 : Product Area produced by JS-->
+    <div class="shop-product-container" id="shopProductContainer"></div>
+  </main>
+
+  <!--PART3: Footer [Common]-->
+  <footer class="footer-container">
+    <div class="footer-upper-container">
+      <div class="footer-column footer-about">
+        <h3>Online Cafe Shop</h3>
+        <p><i class="bi bi-clock" aria-hidden="true"></i> Shop hours: 7:00am – 11:00pm</p>
+        <p><i class="bi bi-laptop" aria-hidden="true"></i> Online orders: 7:00am – 9:00pm</p>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="equipments.html">Equipments</a></li>
+          <li><a href="event.html">Events</a></li>
+          <li><a href="subscription.html">Subscription</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <ul>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">
+            <i class="bi bi-facebook" aria-hidden="true"></i> Facebook</a></li>
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">
+            <i class="bi bi-instagram" aria-hidden="true"></i> Instagram</a></li>
+          <li><a href="https://x.com/" target="_blank" rel="noopener">
+            <i class="bi bi-twitter-x" aria-hidden="true"></i> X</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <address>
+          <p><i class="bi bi-envelope" aria-hidden="true"></i>
+            <a href="mailto:hello@example.com">hello@example.com</a></p>
+          <p><i class="bi bi-telephone" aria-hidden="true"></i>
+            <a href="tel:+95781664130">+95 78166 4130</a></p>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Front End Web Development. All rights reserved.</p>
+      <p class="footer-message">Built by Thin Thiri Zaw - 224619<br>
+        Strategy First International College</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <!--Customize JavaScript-->
+  <script src="js/script.js"></script>
+  <script src="js/script_product.js"></script>
+</body>
+
+</html>
