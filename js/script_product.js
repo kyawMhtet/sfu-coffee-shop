@@ -23,7 +23,7 @@ const products=[
 
 
     { id: 9, name: "Vienna creme latte", category: "Coffee Latte", price: 19.99, desc: "Layer espresso and cream over iced milk.Top with cocoa powder.", tooltip: "Fast Charging 3.0 supported", image: "images/vienna creme latte.jpg" },
-    { id: 10, name: "hazel nut latte", category: "Coffee Latte", price: 19.99, desc: "Morning boost or afternoon comfort", tooltip: "Fast Charging 3.0 supported", image: "images/hazel nut latte.jpg" },
+    { id: 12, name: "hazel nut latte", category: "Coffee Latte", price: 19.99, desc: "Morning boost or afternoon comfort", tooltip: "Fast Charging 3.0 supported", image: "images/hazel nut latte.jpg" },
 
     { id: 11, name: "Creamy Hot Latte", category: "Coffee Latte", price: 19.99, desc: "Espresso with bubbles,too hot steamed milk.", tooltip: "Fast Charging 3.0 supported", image: "images/creamy hot latte.jpg" },
     
@@ -76,16 +76,26 @@ function prepareCategoryContainer(){
         catEle.appendChild(btn);
     }
 }
-
+const notfoundEl=document.getElementById("shopSearchNotFound");
 function prepareProductContainer(items){
     prodEle.innerHTML="";
-    for (p of items){
+    if (items.length===0){
+        notfoundEl.style.display="flex";
+        return;
+    }else{
+       notfoundEl.style.display="none";
+        for (p of items){
+
+        const itemEle=document.createElement("div");
+        itemEle.className="shop-product-item";
+        itemEle.setAttribute("data-aos","fade-up");
 
         const cardEle=document.createElement("article");
         cardEle.className="shop-product-card";
         cardEle.innerHTML=`
           <div class="shop-product-image-container">
-            <image src="${p.image}" alt="${p.name}">
+            <img src="${p.image}" alt="${p.name}"
+            class="zoomable-img">
           </div>
         <div class="shop-product-detail-container">
              <div>
@@ -101,19 +111,64 @@ function prepareProductContainer(items){
               </div>
               <div>
                  <div class="shop-product-price">
-                     ฿${p.price.toFixed(1)}
+                     ฿${p.price.toFixed(2)}
                   </div>
-                  <button class="shop-btn-cart">
+                  <button class="shop-btn-cart"
+                    onclick="addToCart(${p.id})">
                      Add to Cart 
                   </button>
               </div>
         </div>
     `;
-     prodEle.appendChild(cardEle);
+     itemEle.appendChild(cardEle);
+     prodEle.appendChild(itemEle);
 
+        }
+        AOS.refreshHard();
     }
-}
-    
 
+}
+let shopCartItems=[]; 
+function addToCart(pid){
+    const selectProd=products.find(p=> p.id ===pid);
+
+    const localItemsInCartStr=localStorage.getItem("magicshop_cart");
+    if (localItemsInCartStr){
+        shopCartItems=JSON.parse(localItemsInCartStr);
+    }
+    const existItem=shopCartItems.find(item=> item.id ===pid);
+    if (existItem){
+        existItem.quantity+=1;
+    }else{
+        shopCartItems.push({...selectProd,quantity:1});
+    }
+    localStorage.setItem("magicshop_cart",
+        JSON.stringify(shopCartItems));
+
+    updateCartBadgeUI();
+
+   showToastMessage('success',`Add ${selectProd.name} to Shopping cart!`);
+}
+
+const modalEl=document.getElementById("shopImageModal");
+const imageEl=document.getElementById("shopModalContent");
+document.addEventListener("click", (e)=>{
+    if (e.target.classList.contains("zoomable-img")){
+        modalEl.style.display="flex";
+        imageEl.src=e.target.src;
+    }
+    if(e.target.classList.contains("close-btn")){
+        modalEl.style.display="none";
+    }
+
+
+});
 prepareCategoryContainer();
 prepareProductContainer(products);
+
+AOS.init({
+    duration: 1200,
+    easing: "ease-out",
+    offset: 80,
+    once: true
+});
