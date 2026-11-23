@@ -1,6 +1,9 @@
 :root{
     --main-bg: #5C0D1D;
     --main-text: #FFF8E8 ;
+    --font-shop-name: 'Lilita One', sans-serif;
+    --font-paragraph: 'Lobster Two', cursive;
+    --font-product: 'Cormorant Garamond', serif;
 }
 *{
     margin:0;
@@ -16,6 +19,10 @@ body{
     display: flex;
     flex-direction: column;
 
+}
+p{
+    font-family: var(--font-paragraph);
+    font-size: 1.2rem;
 }
 .shop-header-container{
     background-color: #40070D;
@@ -36,7 +43,7 @@ body{
     font-size: 1.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: var(--font-shop-name);
     text-shadow: 1px 2px 3px rgba(0,0,0,0.5);
 }
 .shop-logo img{
@@ -158,11 +165,11 @@ main{
     text-align: center;
 }
 .footer-bottom p{
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin: 0;
 }
 .footer-bottom .footer-message{
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     margin-top: 0.2rem;
 }
 
@@ -323,7 +330,7 @@ main{
     flex-direction: column;
     justify-content: space-between;
     border-radius: 20px;
-    border: 2px 
+    border: 2px
     solid #800020;
     color:#6B0F1A;
     align-items: center;
@@ -371,7 +378,7 @@ main{
     margin-bottom: 1rem;
 }
 .happy-hour-container .header p{
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     line-height: 1.7;
     color: #FFF8E8;
 }
@@ -395,7 +402,7 @@ main{
     margin-bottom: 0.5rem;
 }
 .happy-hour-container .saving{
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #F7C873;
     margin-bottom: 1.2rem;
 }
