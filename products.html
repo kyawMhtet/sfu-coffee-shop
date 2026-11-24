@@ -85,8 +85,13 @@
     <div class="shop-search-container">
       <h1>Coffee Category Searching...</h1>
       <!--Part1.1: Search Box with Text Box-->
-      <input type="text" class="shop-search-box" id="shopSearchBox" placeholder="What's on your mind?">
-      <i class="bi bi-search shop-search-btn"></i>
+      <div class="shop-search-bar">
+        <input type="text" class="shop-search-box" id="shopSearchBox" placeholder="What's on your mind?">
+        <label for="shopSearchBox" class="shop-search-btn">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <span class="visually-hidden">Search products</span>
+        </label>
+      </div>
       <!--Part1.2: Search by category button-->
       <div class="shop-category-container" id="shopCategoryContainer"></div>
       <!--Part 1.3:-->

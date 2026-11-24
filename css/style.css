@@ -312,43 +312,62 @@ main{
 /*Section2: Review Section*/
 .shop-review-section{
     background-color:#FFF3D6;
-    border: none;
-    min-height:500px;
-    display:grid;
-    align-items:center;
-    justify-content:center;
-    padding:13px 10px;
+    padding: 4rem 1.5rem;
 }
+/*flex-wrap + center: leftover cards stay in the middle*/
 .shop-review-card-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
-    gap:30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5rem 2rem;
+    max-width: 1100px;
+    margin: 5rem auto 0 auto;
 }
 .review-card{
-    background-color:white;
+    flex: 1 1 280px;
+    max-width: 340px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    border-radius: 20px;
-    border: 2px
-    solid #800020;
-    color:#6B0F1A;
     align-items: center;
-    padding:8px;
-}
- .shop-review-section .review-card img{
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid green;
-    margin-bottom: 20px;
-    
+    text-align: center;
+    background-color: white;
+    color: #6B0F1A;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(64,7,13,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .review-card:hover{
-    transform: translateY(-10px);
-    transition: 0.8s;
-    box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 14px 28px rgba(64,7,13,0.25);
+}
+/*negative margin lifts the photo over the top edge of the card*/
+.review-card img{
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #FFF3D6;
+    box-shadow: 0 0 0 3px #800020;
+    background-color: white;
+    margin-top: -55px;
+    margin-bottom: 1rem;
+}
+.review-card h2{
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+}
+.review-stars{
+    display: flex;
+    gap: 5px;
+    color: #E0A526;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+.review-card .feedback{
+    color: #4A2A2A;
+    line-height: 1.6;
+    margin-bottom: 0;
 }
 .shop-review-section .Title{
     font-size: 21px;
@@ -439,6 +458,25 @@ main{
         background-color: rgba(255,248,232,0.08);
     }
 
+    /* About: one column, image on top, text below */
+    .shop-about-section{
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .content-image-container img{
+        display: block;
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        object-position: center 20%; /*keeps the COFFEE sign visible*/
+        margin-top: 0;
+    }
+    .content{
+        grid-area: auto;
+        transform: none;
+        padding: 2.5rem 2rem;
+    }
+
     /* Happy hour: image full width on top, text + button side by side */
     .happy-hour-container{
         grid-template-columns: 1fr 1fr;
@@ -456,10 +494,25 @@ main{
 }
 
 /* Small phones (below 576px) */
-@media (max-width: 575.98px){
+@media (max-width: 575px){
     .shop-header-container .navbar{ min-height: 64px; }
     .shop-logo{ font-size: 1.1rem; }
     .shop-logo img{ height: 3rem; }
+
+    /* About: shorter image, smaller headings */
+    .content-image-container img{
+        height: 260px;
+    }
+    .content{
+        padding: 2rem 1.25rem;
+    }
+    .content > h1{
+        font-size: 1.8rem;
+    }
+    .content > h3{
+        font-size: 1.2rem;
+        margin-bottom: 1.25rem;
+    }
 
     /* Happy hour: one column, normal order (heading first) */
     .happy-hour-container{

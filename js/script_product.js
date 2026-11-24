@@ -1,3 +1,10 @@
+AOS.init({
+    duration: 1200,
+    easing: "ease-out",
+    offset: 80,
+    once: true
+});
+
 const products=[
     {
         id:1,
@@ -166,9 +173,3 @@ document.addEventListener("click", (e)=>{
 prepareCategoryContainer();
 prepareProductContainer(products);
 
-AOS.init({
-    duration: 1200,
-    easing: "ease-out",
-    offset: 80,
-    once: true
-});
