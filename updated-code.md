@@ -1,9 +1,6 @@
 # Updated HTML and CSS: Magic Shop
 
-- Copied exactly from commit `0c60c6c` ("restyle search box, review cards and about section responsive").
-- Each part says **which file**, **where it goes** and **what it replaces**.
-
-> This file is listed in `.gitignore`, so it stays on your computer and is not pushed to GitHub.
+- from commit `0c60c6c`
 
 ## Contents
 1. [Fonts and text sizes](#1-fonts-and-text-sizes)
