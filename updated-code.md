@@ -7,7 +7,6 @@
 2. [Product search bar](#2-product-search-bar)
 3. [Review cards](#3-review-cards)
 4. [About section: responsive](#4-about-section-responsive)
-5. [Checklist](#5-checklist)
 
 ---
 
@@ -377,16 +376,3 @@ p{
         margin-bottom: 1.25rem;
     }
 ```
-
----
-
-## 5. Checklist
-- [ ] Google Fonts block in the `<head>` of every page
-- [ ] `:root` variables, `p{ }` rule and `.shop-logo` font in `style.css`
-- [ ] Footer and Happy Hour sizes in `style.css`
-- [ ] `.shop-product-name` and `.shop-product-desc` in `style_shop.css`
-- [ ] Search bar HTML in `products.html` and CSS in `style_shop.css`
-- [ ] Review cards HTML in `index.html` and CSS in `style.css`
-- [ ] Both About blocks inside the media queries in `style.css`
-- [ ] Save all files, then hard refresh with **Cmd + Shift + R**
-
